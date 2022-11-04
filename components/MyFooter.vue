@@ -31,4 +31,8 @@ a,
 strong {
   color: hsl(0, 0%, 96%);
 }
+
+a {
+  text-decoration: underline;
+}
 </style>
