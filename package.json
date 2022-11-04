@@ -12,7 +12,7 @@
     "@nuxt/test-utils-edge": "^3.0.0-rc.13-27791915.19a2cd1",
     "@types/parse": "^3.0.0",
     "gh-pages": "^4.0.0",
-    "nuxt": "3.0.0-rc.12",
+    "nuxt": "3.0.0-rc.13",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
     "vitest": "^0.24.5"
