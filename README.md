@@ -40,3 +40,7 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+
+## Acknowledgment
+
+Name of this project come from an idea of Luca Giorgetti ([lucagiorgettismp](https://github.com/lucagiorgettismp)).

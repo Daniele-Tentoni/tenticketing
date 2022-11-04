@@ -11,5 +11,7 @@ export default defineNuxtConfig({
             jsKey: process.env.NUXT_PUBLIC_JSKEY || ""
         }
     },
-    typescript: { strict: true }
+    typescript: {
+        strict: true
+    }
 });
