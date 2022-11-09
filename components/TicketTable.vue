@@ -25,7 +25,10 @@
     <div v-else>
       <slot name="emptyTable">
         <div class="columns is-mobile">
-          <div class="column">Empty Tickets</div>
+          <div class="column">
+            <p class="title">Empty Tickets</p>
+            <p class="subtitle">You can start creating a ticket clicking on the bottom on the bottom right corner.</p>
+          </div>
           <div class="column"></div>
         </div>
       </slot>

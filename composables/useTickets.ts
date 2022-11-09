@@ -1,5 +1,8 @@
-import Ticket from "../models/ticket";
+import Ticket from '../models/ticket';
 
-export default function () {
-    return useState<Ticket[]>("tickets", () => <Ticket[]>[]);
+export default function (): Ref<Ticket[]> {
+    return useState<Ticket[]>(
+        'tickets',
+        () => [] as Ticket[],
+    );
 };

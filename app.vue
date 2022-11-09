@@ -3,6 +3,7 @@
   <MyNavBar :is-loading="isLoading">
     <template #navbarEnd>
       <div class="navbar-item">
+        <!-- Use reference for App.onMounted event. -->
         <UserLoader ref="userLoader" />
       </div>
     </template>
@@ -21,10 +22,11 @@
 <script lang="ts" setup>
 import FloatingActionButton from "./components/FloatingActionButton.vue";
 import MyNavBar from "./components/MyNavBar.vue";
-
-import Parse from "parse";
+import TicketTable from "./components/TicketTable.vue";
 import UserLoader from "./components/UserLoader.vue";
 
+
+import Parse from "parse";
 const config = useRuntimeConfig();
 const isLoading = useLoading();
 
