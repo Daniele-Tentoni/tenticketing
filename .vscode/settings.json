@@ -1,9 +1,11 @@
 {
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
     "eslint.validate": [
         "javascript",
         "javascriptreact",
         "vue"
     ],
+    "typescript.tsdk": "node_modules/typescript/lib",
 }

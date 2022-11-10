@@ -1,6 +1,8 @@
 module.exports = {
     env: {
+        browser: true,
         es2021: true,
+        node: true,
     },
     extends: [
         'standard-with-typescript',
@@ -13,11 +15,17 @@ module.exports = {
     parser: "vue-eslint-parser",
     parserOptions: {
         ecmaVersion: 'latest',
-        parser: "@typescript-eslint/parser",
+        extraFileExtensions: ['.vue'],
+        parser: {
+            "<template>": "espree",
+            js: "@typescript-eslint/parser",
+            ts: "@typescript-eslint/parser",
+        },
         project: [
             "./tsconfig.json",
         ],
         sourceType: 'module',
+        tsconfigRootDir: __dirname,
     },
     plugins: [
         '@typescript-eslint',
@@ -36,10 +44,6 @@ module.exports = {
                 "exports": "always",
                 "functions": "always-multiline"
             }
-        ],
-        "@typescript-eslint/indent": [
-            "error",
-            4,
         ],
         "@typescript-eslint/semi": [
             "error",

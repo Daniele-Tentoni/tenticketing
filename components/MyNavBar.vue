@@ -1,8 +1,15 @@
 <template>
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar is-dark"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="container">
       <div class="navbar-brand">
-        <NuxtLink class="navbar-item" to="/">
+        <NuxtLink
+          class="navbar-item"
+          to="/"
+        >
           <strong>{{ app.title }}</strong>
         </NuxtLink>
 
@@ -32,13 +39,18 @@
         >
           <div class="navbar-start">
             <div class="navbar-item">
-              <span class="icon" v-if="props.isLoading">
-                <i class="fas fa-spinner fa-pulse"></i>
+              <span
+                v-if="props.isLoading"
+                class="icon"
+              >
+                <i class="fas fa-spinner fa-pulse" />
               </span>
             </div>
           </div>
           <div class="navbar-end">
-            <slot name="navbarEnd">Navbar End</slot>
+            <slot name="navbarEnd">
+              Navbar End
+            </slot>
           </div>
         </div>
       </Transition>
@@ -51,7 +63,7 @@ interface Props {
   isLoading: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), { isLoading: false });
+const props = withDefaults(defineProps<Props>(), { isLoading: false, });
 
 const app = useAppConfig();
 

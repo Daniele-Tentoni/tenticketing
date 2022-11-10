@@ -1,12 +1,21 @@
 <template>
   <div>
-    <div class="table-container" v-if="filteredTickets.length > 0">
+    <div
+      v-if="filteredTickets.length > 0"
+      class="table-container"
+    >
       <table class="table is-bordered is-striped is-fullwidth">
         <thead>
           <tr>
-            <th class="has-background-dark has-text-light">Data</th>
-            <th class="has-background-dark has-text-light">Commessa</th>
-            <th class="has-background-dark has-text-light">Ore</th>
+            <th class="has-background-dark has-text-light">
+              Data
+            </th>
+            <th class="has-background-dark has-text-light">
+              Commessa
+            </th>
+            <th class="has-background-dark has-text-light">
+              Ore
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -26,10 +35,14 @@
       <slot name="emptyTable">
         <div class="columns is-mobile">
           <div class="column">
-            <p class="title">Empty Tickets</p>
-            <p class="subtitle">You can start creating a ticket clicking on the bottom on the bottom right corner.</p>
+            <p class="title">
+              Empty Tickets
+            </p>
+            <p class="subtitle">
+              You can start creating a ticket clicking on the bottom on the bottom right corner.
+            </p>
           </div>
-          <div class="column"></div>
+          <div class="column" />
         </div>
       </slot>
     </div>
@@ -37,7 +50,7 @@
 </template>
 
 <script lang="ts" setup>
-import Ticket from "../models/ticket";
+import Ticket from '../models/ticket';
 
 const tickets = useTickets();
 
@@ -48,6 +61,6 @@ const filteredTickets = computed(() =>
     else if (a.data > b.data) return -1;
     else if (a.data < b.data) return 1;
     return a.commessa.localeCompare(b.commessa);
-  })
+  }),
 );
 </script>

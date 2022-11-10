@@ -2,23 +2,23 @@
  * Ticket interface for this ticketing.
  */
 export default interface Ticket {
-    /**
+  /**
      * Required by Back4App database, contains the unique identifier of the ticket.
      */
-    id: number;
+  id: number;
 
-    /**
+  /**
      * Date when the ticket was registered.
      */
-    data?: Date;
+  data?: Date;
 
-    /**
+  /**
      * Activity made by ticket.
      */
-    commessa: string;
+  commessa: string;
 
-    /**
+  /**
      * Time spent on the activity.
      */
-    ore: number;
-};
+  ore: number;
+}

@@ -3,14 +3,17 @@
     "scripts": {
         "build": "nuxt build",
         "dev": "nuxt dev",
-        "lint": "eslint --ext .js,.ts,.vue ./",
-        "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
+        "lint": "eslint --ext .js,.ts,.vue .",
+        "lint:fix": "eslint --ext .js,.ts,.vue --fix .",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare"
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.19.1",
         "@nuxt/test-utils-edge": "^3.0.0-rc.14-27799862.1496d3a",
+        "@nuxtjs/eslint-config": "^11.0.0",
+        "@nuxtjs/eslint-config-typescript": "^11.0.0",
         "@types/parse": "^3.0.0",
         "@typescript-eslint/eslint-plugin": "^5.42.1",
         "@typescript-eslint/parser": "^5.42.1",

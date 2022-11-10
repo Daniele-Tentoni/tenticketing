@@ -6,21 +6,24 @@
         <a
           href="https://github.com/Daniele-Tentoni/tenticketing"
           target="_blank"
-          >Github</a
-        >.
+        >Github</a>.
       </p>
       <p>
         <strong>Bulma</strong> by
-        <a href="https://jgthms.com" target="_blank">Jeremy Thomas</a>. The
+        <a
+          href="https://jgthms.com"
+          target="_blank"
+        >Jeremy Thomas</a>. The
         source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php" target="_blank"
-          >MIT</a
-        >. The website content is licensed
+        <a
+          href="http://opensource.org/licenses/mit-license.php"
+          target="_blank"
+        >MIT</a>. The website content is
+        licensed
         <a
           href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
           target="_blank"
-          >CC BY NC SA 4.0</a
-        >.
+        >CC BY NC SA 4.0</a>.
       </p>
     </div>
   </footer>

@@ -10,29 +10,28 @@
   </MyNavBar>
   <section class="section">
     <div class="container">
-      <TicketTable></TicketTable>
+      <TicketTable />
     </div>
   </section>
-  <MyFooter></MyFooter>
+  <MyFooter />
   <div>
     <FloatingActionButton :click="(_) => (ticketing = true)" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import FloatingActionButton from "./components/FloatingActionButton.vue";
-import MyNavBar from "./components/MyNavBar.vue";
-import TicketTable from "./components/TicketTable.vue";
-import UserLoader from "./components/UserLoader.vue";
+import FloatingActionButton from './components/FloatingActionButton.vue';
+import MyNavBar from './components/MyNavBar.vue';
+import TicketTable from './components/TicketTable.vue';
+import UserLoader from './components/UserLoader.vue';
 
-
-import Parse from "parse";
+import Parse from 'parse';
 const config = useRuntimeConfig();
 const isLoading = useLoading();
 
 const appId = config.public.apiKey;
 const jsKey = config.public.jsKey;
-const serverUrl = "https://parseapi.back4app.com/";
+const serverUrl = 'https://parseapi.back4app.com/';
 
 const userLoader = ref<InstanceType<typeof UserLoader> | null>(null);
 
