@@ -1,3 +1,5 @@
+import Note from './note';
+
 /**
  * Ticket interface for this ticketing.
  */
@@ -5,7 +7,7 @@ export default interface Ticket {
   /**
      * Required by Back4App database, contains the unique identifier of the ticket.
      */
-  id: number;
+  id: string;
 
   /**
      * Date when the ticket was registered.
@@ -21,4 +23,9 @@ export default interface Ticket {
      * Time spent on the activity.
      */
   ore: number;
+
+  /**
+    * Note associated to this ticket.
+    */
+  notes: Note[];
 }

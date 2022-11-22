@@ -4,7 +4,10 @@
     <template #navbarEnd>
       <div class="navbar-item">
         <!-- Use reference for App.onMounted event. -->
-        <UserLoader ref="userLoader" />
+        <UserLoader
+          ref="userLoader"
+          v-model="user"
+        />
       </div>
     </template>
   </MyNavBar>
@@ -15,7 +18,13 @@
   </section>
   <MyFooter />
   <div>
-    <FloatingActionButton :click="(_) => (ticketing = true)" />
+    <FloatingActionButton :click="showTicketing" />
+  </div>
+  <div>
+    <NewTicketModal
+      v-model:visible="ticketing"
+      :user="user"
+    />
   </div>
 </template>
 
@@ -34,12 +43,18 @@ const jsKey = config.public.jsKey;
 const serverUrl = 'https://parseapi.back4app.com/';
 
 const userLoader = ref<InstanceType<typeof UserLoader> | null>(null);
+const user = useUser();
 
 onMounted(async () => {
   Parse.serverURL = serverUrl;
   Parse.initialize(appId, jsKey);
   userLoader.value?.download();
 });
+
+function showTicketing (e: MouseEvent) {
+  console.log('Mouse button', e.button);
+  ticketing.value = true;
+}
 
 const ticketing = ref(false);
 </script>

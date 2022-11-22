@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.19.1",
-        "@nuxt/test-utils-edge": "^3.0.0-rc.14-27799862.1496d3a",
+        "@nuxt/test-utils-edge": "^3.0.1-rc.0-27817270.4f2bfbe",
         "@nuxtjs/eslint-config": "^11.0.0",
         "@nuxtjs/eslint-config-typescript": "^11.0.0",
         "@types/parse": "^3.0.0",
@@ -24,7 +24,7 @@
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-vue": "^9.7.0",
         "gh-pages": "^4.0.0",
-        "nuxt": "3.0.0-rc.13",
+        "nuxt": "^3.0.0",
         "prettier": "^2.7.1",
         "sass": "^1.55.0",
         "sass-loader": "^13.1.0",
@@ -35,6 +35,6 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.0",
         "bulma": "^0.9.4",
-        "parse": "3.5.0"
+        "parse": "3.4.4"
     }
 }

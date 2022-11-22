@@ -6,7 +6,7 @@ export default interface Note {
      * Unique identifier of the note.
      * Required by Back4App.
      */
-  id: number;
+  // id: number;
 
   /**
      * What this is note about.

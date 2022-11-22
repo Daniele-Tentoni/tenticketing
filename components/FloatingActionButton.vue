@@ -17,7 +17,7 @@ interface FabProps {
 
 const props = withDefaults(defineProps<FabProps>(), {
   text: '+',
-  click: (_: MouseEvent) => console.log('clicked'),
+  click: (e: MouseEvent) => console.log('clicked', e.metaKey),
 });
 </script>
 

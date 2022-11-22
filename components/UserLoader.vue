@@ -35,12 +35,25 @@
 
 <script lang="ts" setup>
 import Parse from 'parse';
+interface Props {
+  modelValue: string;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits(['update:modelValue',]);
 
 defineExpose({ download, });
 
 const isLoading = useLoading();
 const tickets = useTickets();
-const user = ref('');
+const user = computed({
+  get () {
+    return props.modelValue;
+  },
+  set (value) {
+    emit('update:modelValue', value);
+  },
+});
 
 async function download () {
   if (isLoading.value) return;
@@ -66,10 +79,11 @@ async function download () {
 function fillTickets (results: Parse.Object[]) {
   for (const object of results) {
     tickets.value.push({
-      id: object.get('objectId'),
+      id: object.id,
       commessa: object.get('commessa'),
       data: object.get('data'),
       ore: object.get('ore'),
+      notes: object.get('notes') ?? [],
     });
   }
 }

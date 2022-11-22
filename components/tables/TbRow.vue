@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 interface Props {
-  label: string;
+  label?: string;
 }
 
 const props = withDefaults(
