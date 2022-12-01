@@ -6,16 +6,10 @@
     >
       <table class="table is-bordered is-striped is-fullwidth">
         <thead>
-          <tr>
-            <TbH>
-              Data
-            </TbH>
-            <th class="has-background-dark has-text-light">
-              Commessa
-            </th>
-            <th class="has-background-dark has-text-light">
-              Ore
-            </th>
+          <tr class="has-background-dark">
+            <TbH>Data</TbH>
+            <TbH>Commessa</TbH>
+            <TbH>Ore</TbH>
           </tr>
         </thead>
         <tbody>

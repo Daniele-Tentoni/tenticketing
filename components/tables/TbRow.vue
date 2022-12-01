@@ -1,5 +1,5 @@
 <template>
-  <tr class="has-backgroud-dark has-text-light">
+  <tr class="has-background-dark has-text-light">
     <slot>
       {{ props.label }}
     </slot>

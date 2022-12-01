@@ -1,10 +1,6 @@
 <template>
-  <th>
-    <span class="has-backgroud-dark has-text-light">
-      <slot>
-        {{ props.label }}
-      </slot>
-    </span>
+  <th class="has-text-light">
+    <slot>{{ props.label }}</slot>
   </th>
 </template>
 
