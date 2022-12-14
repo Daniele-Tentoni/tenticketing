@@ -13,7 +13,7 @@
         "@babel/eslint-parser": "^7.19.1",
         "@nuxt/test-utils-edge": "^3.0.0-rc.15-27810155.32044dc",
         "@nuxtjs/eslint-config": "^12.0.0",
-        "@nuxtjs/eslint-config-typescript": "^11.0.0",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
         "@types/parse": "^3.0.0",
         "@typescript-eslint/eslint-plugin": "^5.42.1",
         "@typescript-eslint/parser": "^5.42.1",
