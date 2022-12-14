@@ -1,83 +1,137 @@
 <template>
-  <div class="modal" :class="{ 'is-active': props.visible }">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <form class="field">
+  <div
+    class="modal"
+    :class="{ 'is-active': isVisible }"
+  >
+    <div class="modal-background" />
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">
+          Ticket
+        </p>
+        <button
+          class="delete"
+          aria-label="close"
+          @click="isVisible = false"
+        />
+      </header>
+      <section class="modal-card-body">
         <div class="field">
-          <label class="label" for="commessa">Commessa</label>
+          <label
+            class="label has-text-light"
+            for="commessa"
+          >
+            Commessa
+          </label>
           <div class="control">
             <input
+              v-model="commessa"
               type="text"
               class="input"
               name="commessa"
-              v-model="commessa"
-            />
+            >
           </div>
-          <p class="help">Commessa su cui hai lavorato</p>
+          <p class="help">
+            Commessa su cui hai lavorato
+          </p>
         </div>
         <div class="field">
-          <label class="label" for="ore">Ore</label>
+          <label
+            class="label has-text-light"
+            for="ore"
+          >
+            Ore
+          </label>
           <div class="control">
-            <input type="number" class="input" name="ore" v-model="ore" />
+            <input
+              v-model="ore"
+              type="number"
+              class="input"
+              name="ore"
+            >
           </div>
-          <p class="help">Quante ore ci hai lavorato</p>
+          <p class="help">
+            Quante ore ci hai lavorato
+          </p>
         </div>
+      </section>
+      <footer class="modal-card-foot">
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-primary" type="button" @click="tick">
+            <button
+              class="button is-primary"
+              type="button"
+              @click="tick"
+            >
               Tick
             </button>
           </div>
           <div class="control">
-            <button class="button" type="reset">Reset</button>
+            <button
+              class="button"
+              type="reset"
+            >
+              Reset
+            </button>
           </div>
         </div>
-      </form>
+      </footer>
     </div>
-    <button
-      class="modal-close is-large"
-      aria-label="close"
-      @click="props.visible = false"
-    ></button>
   </div>
 </template>
 
 <script setup lang="ts">
+import Parse from 'parse';
 interface Props {
   user: string;
-  visible: boolean;
+  visible?: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), { visible: false });
+const props = withDefaults(defineProps<Props>(), { visible: false, });
+const emit = defineEmits(['update:visible',]);
+
+const isVisible = computed({
+  get () {
+    return props.visible;
+  },
+  set (value) {
+    emit('update:visible', value);
+  },
+});
 
 const isLoading = useLoading();
 const tickets = useTickets();
 
-const commessa = ref("");
+const commessa = ref('');
 const ore = ref(0);
 
-async function tick() {
+async function tick () {
   if (isLoading.value) return;
 
   try {
     isLoading.value = true;
-    const myNewObject: Parse.Object = new Parse.Object("Ticket");
-    myNewObject.set("commessa", commessa.value);
-    myNewObject.set("data", new Date());
-    myNewObject.set("ore", ore.value);
-    myNewObject.set("utente", props.user);
+    const config = useRuntimeConfig();
+    const appId = config.public.apiKey;
+    const jsKey = config.public.jsKey;
+    const serverUrl = 'https://parseapi.back4app.com/';
+    Parse.serverURL = serverUrl;
+    Parse.initialize(appId, jsKey);
+    const myNewObject: Parse.Object = new Parse.Object('Ticket');
+    myNewObject.set('commessa', commessa.value);
+    myNewObject.set('data', new Date());
+    myNewObject.set('ore', ore.value);
+    myNewObject.set('utente', props.user);
     try {
       const result: Parse.Object = await myNewObject.save();
       tickets.value.push({
-        id: result.get("objectId"),
-        commessa: result.get("commessa"),
-        // data: object.get("data"),
-        data: result.get("data"),
-        ore: result.get("ore"),
+        id: result.get('objectId'),
+        commessa: result.get('commessa'),
+        data: result.get('data'),
+        ore: result.get('ore'),
       });
-      props.visible = false;
+      isVisible.value = false;
     } catch (error: any) {
-      console.error("Error while creating Ticket: ", error);
+      console.error('Error while creating Ticket: ', error);
     }
   } finally {
     isLoading.value = false;

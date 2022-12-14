@@ -1,5 +1,7 @@
 # Tenticketing
 
+My personal solution for creating tickets for some works. Obv this is not designed for production use.
+
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
 ## Setup

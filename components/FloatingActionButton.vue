@@ -1,6 +1,9 @@
 <template>
   <div class="fab-container">
-    <button class="button is-dark is-inverted is-outlined" @click="click">
+    <button
+      class="button is-dark is-inverted is-outlined"
+      @click="click"
+    >
       {{ props.text }}
     </button>
   </div>
@@ -13,8 +16,8 @@ interface FabProps {
 }
 
 const props = withDefaults(defineProps<FabProps>(), {
-  text: "+",
-  click: (_: MouseEvent) => console.log("clicked"),
+  text: '+',
+  click: (e: MouseEvent) => console.log('clicked', e.metaKey),
 });
 </script>
 
