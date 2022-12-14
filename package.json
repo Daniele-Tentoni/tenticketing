@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.19.1",
-        "@nuxt/test-utils-edge": "^3.0.1-rc.0-27817270.4f2bfbe",
+        "@nuxt/test-utils-edge": "^3.0.0-rc.15-27810155.32044dc",
         "@nuxtjs/eslint-config": "^11.0.0",
         "@nuxtjs/eslint-config-typescript": "^11.0.0",
         "@types/parse": "^3.0.0",
