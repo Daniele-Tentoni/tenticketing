@@ -21,7 +21,6 @@
         <div class="control">
           <button
             class="button"
-            @click="download"
           >
             <span class="icon">
               <i class="fas fa-arrows-rotate" />
@@ -34,7 +33,6 @@
 </template>
 
 <script lang="ts" setup>
-import Parse from 'parse';
 interface Props {
   modelValue: string;
 }
@@ -42,10 +40,6 @@ interface Props {
 const props = defineProps<Props>();
 const emit = defineEmits(['update:modelValue',]);
 
-defineExpose({ download, });
-
-const isLoading = useLoading();
-const tickets = useTickets();
 const user = computed({
   get () {
     return props.modelValue;
@@ -54,6 +48,16 @@ const user = computed({
     emit('update:modelValue', value);
   },
 });
+
+/*
+@click="download"
+
+import Parse from 'parse';
+
+const isLoading = useLoading();
+const tickets = useTickets();
+
+defineExpose({ download, });
 
 async function download () {
   if (isLoading.value) return;
@@ -87,4 +91,5 @@ function fillTickets (results: Parse.Object[]) {
     });
   }
 }
+*/
 </script>

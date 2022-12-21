@@ -68,7 +68,7 @@ import Ticket from '../../models/ticket';
 
 interface Props {
   id: string;
-  user: string;
+  user: Parse.Object | null;
   visible?: boolean;
 }
 
