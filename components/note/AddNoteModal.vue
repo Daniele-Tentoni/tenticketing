@@ -113,7 +113,7 @@ async function note () {
           subject: subject.value,
           value: value.value,
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error while creating Note: ', error);
     }
   } finally {

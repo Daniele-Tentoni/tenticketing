@@ -3,40 +3,21 @@
     <h1 class="h1">
       User Login
     </h1>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Username</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input
-              v-model="username"
-              class="input is-danger"
-              type="next"
-              placeholder="Username"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Password</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input
-              v-model="password"
-              class="input is-danger"
-              type="next"
-              placeholder="Password"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+    <Field
+      v-model="username"
+      placeholder="Username"
+      text="Username"
+    />
+    <Field
+      v-model="password"
+      placeholder="Password"
+      text="Password"
+      type="password"
+    >
+      <template #left-icon>
+        <i class="fas fa-key" />
+      </template>
+    </Field>
     <div class="buttons">
       <div class="field">
         <button
@@ -51,6 +32,7 @@
 </template>
 
 <script lang="ts" setup>
+import Field from '@/components/ui/form/field.vue';
 import Parse from 'parse';
 
 const username = ref('');
@@ -66,8 +48,8 @@ async function doUserLogin () {
     password.value = '';
     await getCurrentUser();
     return true;
-  } catch (error: any) {
-    alert(`Error! ${error.message}`);
+  } catch (error: unknown) {
+    alert(`Error! ${(error as Error).message}`);
     return false;
   }
 }

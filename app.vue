@@ -5,39 +5,35 @@
       <div class="navbar-item">
         {{ status }}
       </div>
-      <div class="navbar-item">
-        <!-- Use reference for App.onMounted event. -->
+      <!-- Use reference for App.onMounted event. -->
+      <div
+        v-if="isLogIn"
+        class="navbar-item"
+      >
+        Hello, {{ username }}&nbsp;
+        <button @click="userLogout">
+          Logout
+        </button>
+      </div>
+      <div
+        v-else
+        class="navbar-item"
+      >
         <div
-          v-if="isLogIn"
-          class="navbar-item"
+          class="buttons"
         >
-          Hello, {{ username }}
-        </div>
-        <div class="navbar-item">
-          <div
-            v-if="!isLogIn"
-            class="buttons"
+          <NuxtLink
+            class="button"
+            to="signup"
           >
-            <NuxtLink
-              class="button"
-              to="signup"
-            >
-              Sign Up
-            </NuxtLink>
-            <NuxtLink
-              class="button"
-              to="signin"
-            >
-              Sign In
-            </NuxtLink>
-          </div>
-          <div
-            v-else
+            Sign Up
+          </NuxtLink>
+          <NuxtLink
+            class="button"
+            to="signin"
           >
-            <button @click="userLogout">
-              Logout
-            </button>
-          </div>
+            Sign In
+          </NuxtLink>
         </div>
       </div>
     </template>
@@ -87,7 +83,7 @@ onMounted(async () => {
     status.value = 'Initializing parse';
     Parse.initialize(appId, jsKey);
     await getCurrentUser();
-    await download();
+    // await download();
   } finally {
     isLoading.value = false;
     status.value = 'Ready';
@@ -109,17 +105,24 @@ watch(user, async (newUser) => {
 });
 
 async function userLogout () {
+  if (isLoading.value) {
+    return;
+  }
+
   try {
-    await Parse.User.logOut();
-    const currentUser: Parse.User | null = await Parse.User.currentAsync();
+    isLoading.value = true;
+    const oldUser: Parse.User = await Parse.User.logOut();
+    const currentUser: Parse.User | null = await getCurrentUser();
     if (currentUser === null) {
-      alert('Successful logout');
+      alert(`Successful logout ${oldUser.getUsername()}`);
     }
-    await getCurrentUser();
+
     return true;
-  } catch (error: any) {
-    alert(`Error! ${error.message}`);
+  } catch (error: unknown) {
+    alert(`Error! ${(error as Error).message}`);
     return false;
+  } finally {
+    isLoading.value = false;
   }
 }
 

@@ -18,7 +18,7 @@
       <section class="modal-card-body">
         <div class="field">
           <label
-            class="label has-text-light"
+            class="label"
             for="commessa"
           >
             Commessa
@@ -130,7 +130,7 @@ async function tick () {
         ore: result.get('ore'),
       });
       isVisible.value = false;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error while creating Ticket: ', error);
     }
   } finally {

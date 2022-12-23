@@ -16,5 +16,5 @@ export default interface Note {
   /**
      * Value of this note. Could be string, number or any type.
      */
-  value: any;
+  value: unknown;
 }

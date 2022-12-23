@@ -58,8 +58,11 @@ module.exports = {
                 },
             },
         ],
-        "vue/multi-word-component-names": ["error", {
-            "ignores": ["index", "signup", "signin"]
-          }]
+        "vue/multi-word-component-names": [
+            "warn",
+            {
+                "ignores": ["field", "index", "signup", "signin"]
+            },
+        ]
     },
 }
